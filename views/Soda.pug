@@ -5,7 +5,14 @@ block content
   h1= title
   -let results=[{company:"Pepsi",flavour:"cola",price:2},{company:"Mountain dew",flavour:"lemon",price:4},{company:"sting",flavour:"strawberry",price:3}]
   div(class="row")
-    each key in results
-        div(class = "col-sm-2 bg-primary") #{key.company}
-        div(class = "col-sm-2 bg-primary") #{key.flavour}
-        div(class = "col-sm-2 bg-primary") #{key.price}
+    each key,index in results
+        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{key.company}
+        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{key.flavour}
+        div(class = "col-sm-2 bg-primary" onclick=`buy(${index})`) #{key.price}
+  script.
+     
+      function buy(itemNo)
+      {
+        alert(`You purchased Item ${itemNo+1}`)
+      }
+    
